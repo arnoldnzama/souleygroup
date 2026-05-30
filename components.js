@@ -144,7 +144,7 @@ function initNavbar(currentPage) {
         </button>
       </div>
     </div>
-    <div class="xl:hidden fixed inset-x-0 top-[80px] bottom-0 bg-white z-40 flex flex-col p-6 sm:p-8 opacity-0 pointer-events-none transition-all duration-300 overflow-y-auto invisible" id="mobile-menu">
+    <div class="xl:hidden fixed inset-x-0 top-[96px] bottom-0 bg-white z-40 flex-col p-6 sm:p-8 transition-all duration-300 overflow-y-auto hidden" id="mobile-menu">
       <div class="flex flex-col gap-2 text-left mt-6">${mobileLinks}</div>
       <div class="mt-auto pt-8 flex flex-col gap-3">
         <a href="contact.html" class="text-center bg-gold text-white font-bold tracking-wider py-3 rounded">Contact</a>
@@ -167,29 +167,38 @@ function initNavbar(currentPage) {
   const menu = document.getElementById('mobile-menu');
   if (btn && menu) {
     console.log('Mobile menu initialized');
-    const setMenuOpen = (isOpen) => {
-      btn.setAttribute('aria-expanded', String(isOpen));
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-      if (typeof animateMobileMenuToggle === 'function') {
-        animateMobileMenuToggle(isOpen);
-        return;
+    
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = !menu.classList.contains('hidden');
+      console.log('Menu toggle clicked, currently open:', isOpen);
+      
+      if (isOpen) {
+        // Fermer le menu
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        // Changer l'icône en hamburger
+        btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      } else {
+        // Ouvrir le menu
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        // Changer l'icône en X
+        btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
       }
-      menu.classList.toggle('opacity-100', isOpen);
-      menu.classList.toggle('pointer-events-auto', isOpen);
-      menu.classList.toggle('opacity-0', !isOpen);
-      menu.classList.toggle('pointer-events-none', !isOpen);
-      menu.classList.toggle('invisible', !isOpen);
-    };
-
-    btn.addEventListener('click', () => {
-      const open = menu.classList.contains('opacity-100');
-      console.log('Menu toggle clicked, currently open:', open);
-      setMenuOpen(!open);
     });
+    
+    // Fermer le menu quand on clique sur un lien (sauf les sous-menus)
     document.querySelectorAll('.mobile-nav-link').forEach(l => {
-      if (!l.closest('.mobile-submenu-wrapper')) {
+      if (!l.closest('.mobile-submenu-wrapper') || l.tagName === 'A') {
         l.addEventListener('click', () => {
-          setMenuOpen(false);
+          menu.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+          btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
         });
       }
     });

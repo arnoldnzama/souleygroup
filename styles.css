@@ -176,3 +176,160 @@ header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.15)}
 /* Smooth scroll behavior */
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+
+
+/* ============================================
+   RESPONSIVE MOBILE & TABLET
+   ============================================ */
+
+/* Mobile Menu Styles */
+#mobile-menu {
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 96px);
+}
+
+#mobile-menu.hidden {
+  display: none !important;
+}
+
+/* Mobile submenu animations */
+.mobile-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-submenu:not(.hidden) {
+  max-height: 500px;
+}
+
+.mobile-submenu-icon {
+  transition: transform 0.3s ease;
+}
+
+.mobile-submenu-icon.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1279px) {
+  /* Tablet & Mobile: Hide desktop nav */
+  nav.hidden.xl\\:flex {
+    display: none !important;
+  }
+  
+  /* Show mobile menu button */
+  #mobile-menu-btn {
+    display: block !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile: Adjust header height */
+  header .flex {
+    height: 80px !important;
+  }
+  
+  #mobile-menu {
+    top: 80px !important;
+    max-height: calc(100vh - 80px);
+  }
+  
+  /* Mobile: Smaller logo */
+  header img {
+    height: 60px !important;
+  }
+  
+  /* Mobile: Better spacing */
+  .mobile-nav-link {
+    padding: 1rem 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Mobile: Hero adjustments */
+  .page-hero {
+    min-height: 280px !important;
+  }
+  
+  .page-hero h1 {
+    font-size: 2rem !important;
+  }
+  
+  /* Mobile: Card grids */
+  .grid.md\\:grid-cols-2,
+  .grid.lg\\:grid-cols-3,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Small mobile: Even smaller text */
+  .page-hero h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  .page-hero p {
+    font-size: 0.875rem !important;
+  }
+  
+  /* Small mobile: Compact padding */
+  section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+}
+
+/* Tablet specific (768px - 1279px) */
+@media (min-width: 768px) and (max-width: 1279px) {
+  /* Tablet: 2 columns for cards */
+  .grid.lg\\:grid-cols-3,
+  .grid.lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Tablet: Better mobile menu */
+  #mobile-menu {
+    padding: 2rem 3rem !important;
+  }
+  
+  .mobile-nav-link {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  #mobile-menu {
+    padding: 1rem !important;
+  }
+  
+  .mobile-nav-link {
+    padding: 0.5rem 0 !important;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch */
+  .hover\\:scale-110:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  header,
+  footer,
+  #chatbot-container,
+  #mobile-menu-btn {
+    display: none !important;
+  }
+}
