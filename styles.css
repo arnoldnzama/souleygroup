@@ -184,9 +184,10 @@ html{scroll-behavior:smooth}
 
 /* Mobile Menu Styles */
 #mobile-menu {
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  max-height: calc(100vh - 96px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 80px);
   flex-direction: column;
+  display: none;
 }
 
 #mobile-menu:not(.hidden) {
@@ -203,31 +204,49 @@ html{scroll-behavior:smooth}
   gap: 0.5rem;
 }
 
+.mobile-nav-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .mobile-menu-actions {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: 2rem;
-  padding-top: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Mobile submenu animations */
 .mobile-submenu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
 }
 
 .mobile-submenu:not(.hidden) {
-  max-height: 500px;
+  max-height: 600px;
+  opacity: 1;
 }
 
 .mobile-submenu-icon {
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .mobile-submenu-icon.rotate-180 {
   transform: rotate(180deg);
+}
+
+.mobile-submenu-wrapper button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* Responsive adjustments */
@@ -243,7 +262,9 @@ html{scroll-behavior:smooth}
   
   /* Show mobile menu button */
   #mobile-menu-btn {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -251,6 +272,10 @@ html{scroll-behavior:smooth}
   #mobile-menu {
     top: 80px !important;
     max-height: calc(100vh - 80px);
+  }
+  
+  header .flex {
+    height: 80px !important;
   }
 }
 
@@ -267,12 +292,12 @@ html{scroll-behavior:smooth}
   
   /* Mobile: Smaller logo */
   header img {
-    height: 60px !important;
+    height: 64px !important;
   }
   
   /* Mobile: Better spacing */
   .mobile-nav-link {
-    padding: 1rem 0 !important;
+    padding: 0.875rem 1rem !important;
     font-size: 1rem !important;
   }
   
@@ -308,6 +333,20 @@ html{scroll-behavior:smooth}
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
   }
+  
+  /* Small mobile: Smaller logo */
+  header img {
+    height: 56px !important;
+  }
+  
+  header .flex {
+    height: 72px !important;
+  }
+  
+  #mobile-menu {
+    top: 72px !important;
+    max-height: calc(100vh - 72px);
+  }
 }
 
 /* Tablet specific (768px - 1279px) */
@@ -335,7 +374,15 @@ html{scroll-behavior:smooth}
   }
   
   .mobile-nav-link {
-    padding: 0.5rem 0 !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  header .flex {
+    height: 64px !important;
+  }
+  
+  header img {
+    height: 48px !important;
   }
 }
 
@@ -343,9 +390,8 @@ html{scroll-behavior:smooth}
 @media (hover: none) and (pointer: coarse) {
   /* Larger touch targets */
   button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
+  a.mobile-nav-link {
+    min-height: 48px;
   }
   
   /* Remove hover effects on touch */

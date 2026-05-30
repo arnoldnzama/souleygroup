@@ -78,14 +78,17 @@
       </div>
     </div>
 
-    <div class="absolute bottom-10 right-10 z-10 flex gap-3">
-      <button onclick="setSlide(0)" class="hero-dot w-12 h-1.5 rounded-full bg-gold transition-colors"></button>
-      <button onclick="setSlide(1)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
-      <button onclick="setSlide(2)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
-      <button onclick="setSlide(3)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
+    <div class="absolute bottom-10 right-10 z-10 flex items-center gap-3">
+      <button onclick="setSlide(0)" class="hero-dot w-2.5 h-2.5 rounded-full bg-gold transition-all hover:scale-125"></button>
+      <div class="w-12 h-0.5 bg-white/20"></div>
+      <button onclick="setSlide(1)" class="hero-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all hover:scale-125"></button>
+      <div class="w-12 h-0.5 bg-white/20"></div>
+      <button onclick="setSlide(2)" class="hero-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all hover:scale-125"></button>
+      <div class="w-12 h-0.5 bg-white/20"></div>
+      <button onclick="setSlide(3)" class="hero-dot w-2.5 h-2.5 rounded-full bg-white/30 transition-all hover:scale-125"></button>
     </div>
     
-    <div class="absolute bottom-10 right-40 z-10 font-mono text-sm text-white font-bold" id="slide-num">01</div>
+    <div class="absolute bottom-10 right-[280px] z-10 font-mono text-sm text-white font-bold" id="slide-num">01</div>
     
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60">
       <span class="text-[10px] uppercase tracking-widest text-white">Découvrir</span>

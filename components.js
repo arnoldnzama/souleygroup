@@ -100,37 +100,37 @@ function initNavbar(currentPage) {
   }).join('');
 
   const mobileLinks = pages.filter(p => p.id !== 'contact').map(p => {
-    const cls = p.id === currentPage ? 'text-gold border-b-2 border-gold' : 'text-navy border-b-2 border-transparent';
+    const cls = p.id === currentPage ? 'text-gold border-l-4 border-gold bg-gold/5' : 'text-navy border-l-4 border-transparent';
     if (p.hasMega) {
       return `
         <div class="mobile-submenu-wrapper">
-          <button onclick="toggleMobileSubmenu('groupe')" class="mobile-nav-link text-base font-medium ${cls} hover:text-gold hover:border-gold transition-all py-3 w-full text-left flex items-center justify-between">
+          <button onclick="toggleMobileSubmenu('groupe')" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 w-full text-left flex items-center justify-between rounded-lg">
             ${p.label}
-            <svg class="w-4 h-4 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <svg class="w-5 h-5 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div class="mobile-submenu hidden pl-4 py-2 space-y-2" id="mobile-submenu-groupe">
-            <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold py-2">Notre Vision</a>
-            <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold py-2">Nos Projets</a>
+          <div class="mobile-submenu hidden pl-6 py-2 space-y-1" id="mobile-submenu-groupe">
+            <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Notre Vision</a>
+            <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Nos Projets</a>
             <div class="border-t border-gray-200 my-2 pt-2">
-              <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Nos Divisions</p>
-              <a href="services.html#construction" class="block text-sm text-gray-600 hover:text-gold py-1.5">Magem Construct</a>
-              <a href="services.html#mines" class="block text-sm text-gray-600 hover:text-gold py-1.5">Mines & Énergie</a>
-              <a href="services.html#telecom" class="block text-sm text-gray-600 hover:text-gold py-1.5">Télécoms</a>
-              <a href="fondation.html" class="block text-sm text-gray-600 hover:text-gold py-1.5">Fondation</a>
+              <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 px-3">Nos Divisions</p>
+              <a href="services.html#construction" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Magem Construct</a>
+              <a href="services.html#mines" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Mines & Énergie</a>
+              <a href="services.html#telecom" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Télécoms</a>
+              <a href="fondation.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Fondation</a>
             </div>
           </div>
         </div>`;
     }
-    return `<a href="${p.href}" class="mobile-nav-link text-base font-medium ${cls} hover:text-gold hover:border-gold transition-all py-3">${p.label}</a>`;
+    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg">${p.label}</a>`;
   }).join('');
 
   c.innerHTML = `
   <div class="fixed top-0 left-0 w-full h-[2px] bg-gold z-[9999] origin-left scale-x-0" id="scroll-progress"></div>
   <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-gray-200" id="navbar">
-    <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between h-24 lg:h-20">
-        <a href="index.html" class="flex items-center gap-3 group">
-          <img src="logo/sg.png" alt="Souley Group" class="h-20 md:h-24 lg:h-24 w-auto group-hover:opacity-80 transition-opacity">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 sm:h-24 lg:h-20">
+        <a href="index.html" class="flex items-center gap-3 group z-50">
+          <img src="logo/sg.png" alt="Souley Group" class="h-16 sm:h-20 md:h-24 lg:h-24 w-auto group-hover:opacity-80 transition-opacity">
         </a>
         <nav class="hidden xl:flex items-center gap-8">${navLinks}</nav>
         <div class="desktop-nav-actions hidden xl:flex items-center gap-4">
@@ -139,15 +139,17 @@ function initNavbar(currentPage) {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </button>
         </div>
-        <button class="xl:hidden text-navy hover:text-gold transition-colors focus:outline-none" id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button class="xl:hidden text-navy hover:text-gold transition-colors focus:outline-none z-50 relative" id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
-    <div class="xl:hidden fixed inset-x-0 top-[96px] bottom-0 bg-white z-40 flex-col p-6 sm:p-8 transition-all duration-300 overflow-y-auto hidden" id="mobile-menu">
-      <div class="mobile-menu-links flex flex-col gap-2 text-left mt-4">${mobileLinks}</div>
-      <div class="mobile-menu-actions mt-8 pt-4 flex flex-col gap-3">
-        <a href="contact.html" class="mobile-contact-link text-center bg-gold text-white font-bold tracking-wider py-3 rounded">Contact</a>
+    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-40 flex-col transition-all duration-300 hidden" id="mobile-menu">
+      <div class="flex-1 overflow-y-auto p-6 sm:p-8">
+        <div class="mobile-menu-links flex flex-col gap-1 text-left">${mobileLinks}</div>
+      </div>
+      <div class="mobile-menu-actions p-6 sm:p-8 pt-4 border-t border-gray-200 flex flex-col gap-3 bg-white">
+        <a href="contact.html" class="mobile-contact-link text-center bg-gold text-white font-bold tracking-wider py-3.5 rounded-lg hover:bg-gold-dark transition-colors">Contact</a>
       </div>
     </div>
   </header>`;
@@ -162,48 +164,97 @@ function initNavbar(currentPage) {
     if (navbar) { if(s>50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); }
   });
 
-  // Mobile
+  // Mobile Menu Logic
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  
   if (btn && menu) {
-    console.log('Mobile menu initialized');
+    let isMenuOpen = false;
     
+    const openMenu = () => {
+      isMenuOpen = true;
+      menu.classList.remove('hidden');
+      menu.style.display = 'flex';
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+      
+      // Animation d'entrée
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(menu, 
+          { opacity: 0, y: -20 }, 
+          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }
+        );
+        gsap.fromTo('.mobile-nav-link', 
+          { opacity: 0, x: -20 }, 
+          { opacity: 1, x: 0, duration: 0.3, stagger: 0.05, ease: 'power2.out' }
+        );
+      }
+    };
+    
+    const closeMenu = () => {
+      isMenuOpen = false;
+      
+      if (typeof gsap !== 'undefined') {
+        gsap.to(menu, {
+          opacity: 0,
+          y: -20,
+          duration: 0.25,
+          ease: 'power2.in',
+          onComplete: () => {
+            menu.classList.add('hidden');
+            menu.style.display = 'none';
+          }
+        });
+      } else {
+        menu.classList.add('hidden');
+        menu.style.display = 'none';
+      }
+      
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    };
+    
+    // Toggle menu on button click
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      const isOpen = !menu.classList.contains('hidden');
-      console.log('Menu toggle clicked, currently open:', isOpen);
       
-      if (isOpen) {
-        // Fermer le menu
-        menu.classList.add('hidden');
-        btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        // Changer l'icône en hamburger
-        btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      if (isMenuOpen) {
+        closeMenu();
       } else {
-        // Ouvrir le menu
-        menu.classList.remove('hidden');
-        btn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        // Changer l'icône en X
-        btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+        openMenu();
       }
     });
     
-    const closeMobileMenu = () => {
-      menu.classList.add('hidden');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
-    };
-
-    // Fermer le menu quand on clique sur un vrai lien.
+    // Close menu when clicking on links
     menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeMobileMenu);
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
     });
-  } else {
-    console.error('Mobile menu elements not found:', { btn: !!btn, menu: !!menu });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (isMenuOpen && !menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        closeMenu();
+      }
+    });
+    
+    // Close menu on window resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1280 && isMenuOpen) {
+        closeMenu();
+      }
+    });
   }
 }
 
@@ -211,21 +262,50 @@ function initNavbar(currentPage) {
 window.toggleMobileSubmenu = function(id) {
   const submenu = document.getElementById(`mobile-submenu-${id}`);
   const icon = document.getElementById(`mobile-submenu-icon-${id}`);
-  if (submenu && icon) {
-    const isOpening = submenu.classList.contains('hidden');
-    submenu.classList.toggle('hidden', !isOpening);
-    submenu.style.maxHeight = isOpening ? `${submenu.scrollHeight}px` : '0px';
-    icon.classList.toggle('rotate-180', isOpening);
-
-    if (isOpening && typeof gsap !== 'undefined') {
-      gsap.fromTo(submenu.querySelectorAll('a'), { x: -12, opacity: 0 }, {
-        x: 0,
-        opacity: 1,
+  
+  if (!submenu || !icon) return;
+  
+  const isCurrentlyHidden = submenu.classList.contains('hidden');
+  
+  if (isCurrentlyHidden) {
+    // Ouvrir le sous-menu
+    submenu.classList.remove('hidden');
+    icon.classList.add('rotate-180');
+    
+    // Animation d'ouverture
+    if (typeof gsap !== 'undefined') {
+      gsap.fromTo(submenu, 
+        { maxHeight: 0, opacity: 0 },
+        { maxHeight: 600, opacity: 1, duration: 0.3, ease: 'power2.out' }
+      );
+      gsap.fromTo(submenu.querySelectorAll('a'), 
+        { x: -12, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.25, stagger: 0.04, ease: 'power2.out', delay: 0.1 }
+      );
+    } else {
+      submenu.style.maxHeight = '600px';
+      submenu.style.opacity = '1';
+    }
+  } else {
+    // Fermer le sous-menu
+    icon.classList.remove('rotate-180');
+    
+    if (typeof gsap !== 'undefined') {
+      gsap.to(submenu, {
+        maxHeight: 0,
+        opacity: 0,
         duration: 0.25,
-        stagger: 0.04,
-        ease: 'power2.out',
-        clearProps: 'transform,opacity'
+        ease: 'power2.in',
+        onComplete: () => {
+          submenu.classList.add('hidden');
+        }
       });
+    } else {
+      submenu.style.maxHeight = '0';
+      submenu.style.opacity = '0';
+      setTimeout(() => {
+        submenu.classList.add('hidden');
+      }, 250);
     }
   }
 }
