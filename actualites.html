@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités — Souley Group</title>
+  <meta name="description" content="Actualités, innovations et communiqués de presse de Souley Group.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Actualités — Souley Group">
+  <meta property="og:description" content="Actualités, innovations et communiqués de presse de Souley Group.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero min-h-[340px]">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168d6c?auto=format&fit=crop&w=1920&q=80" alt="Actualités" class="absolute inset-0 w-full h-full object-cover">
+    <div class="page-hero-content max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Accueil <span class="mx-2">&gt;</span> <span class="text-white">Actualités</span></div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">Les Échos du Groupe</h1>
+      <p class="text-lg text-gray-300 max-w-2xl">Actualités, innovations et communiqués de presse.</p>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-end gap-4 mb-12 border-b border-white/5 pb-6">
+        <h2 class="font-display font-bold text-3xl">Derniers Articles</h2>
+        <a href="#newsletter" class="text-xs font-bold uppercase tracking-wider text-gold hover:text-white transition-colors">Recevoir notre newsletter <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Loader -->
+        <div class="col-span-full flex justify-center py-12"><div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER CTA -->
+  <section id="newsletter" class="py-16 bg-navy border-y border-white/5 text-center">
+    <div class="max-w-xl mx-auto px-6">
+      <h2 class="font-display font-bold text-2xl mb-4 text-white">Restez informé</h2>
+      <p class="text-sm text-gray-400 mb-6">Recevez nos communiqués directement dans votre boîte.</p>
+      <div class="flex gap-2">
+        <input type="email" placeholder="Votre adresse email" class="flex-1 bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold transition-colors">
+        <button class="px-6 py-3 bg-gold text-black font-bold rounded-xl hover:bg-gold-dark transition-colors uppercase tracking-wider text-sm">S'inscrire</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('actualites');
+      initFooter();
+      initChatbot();
+      if(typeof initActualitesPage==='function') initActualitesPage();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

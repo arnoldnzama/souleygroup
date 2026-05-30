@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souley Group — Construire l'Afrique de demain</title>
+  <meta name="description" content="Leader multisectoriel en ingénierie, énergies renouvelables et connectivité numérique en RDC.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Souley Group — Construire l'Afrique de demain">
+  <meta property="og:description" content="Leader multisectoriel en ingénierie, énergies renouvelables et connectivité numérique en RDC.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden" id="hero">
+    <div class="slide absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 scale-100">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80" alt="Construction" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+    <div class="slide absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 scale-95">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80" alt="Energy" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+    <div class="slide absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 scale-95">
+      <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1920&q=80" alt="Telecom" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+    <div class="slide absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 scale-95">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80" alt="Foundation" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/65"></div>
+    </div>
+
+    <div class="absolute w-[800px] h-[800px] bg-steel/5 rounded-full blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="absolute w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-screen"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center text-center mt-16">
+      <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white shadow-xl" id="hero-badge">
+        <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span> Ingénierie & Infrastructures
+      </div>
+      <h1 class="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white mb-8 leading-[1.1]" id="hero-title">
+        Construire l'Afrique de <span class="text-gold">demain</span>
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed mb-10 font-light" id="hero-subtitle">
+        Leader multisectoriel en ingénierie, énergies renouvelables et connectivité numérique en RDC.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-center">
+        <a href="projets.html" class="btn-premium glow-btn-gold px-8 py-4 bg-gold text-black font-bold uppercase tracking-wider rounded-xl text-sm w-full sm:w-auto text-center">Découvrir nos projets</a>
+        <a href="services.html" class="px-8 py-4 glass-panel border border-white/10 text-white font-bold uppercase tracking-wider rounded-xl text-sm hover:bg-white/10 transition-colors w-full sm:w-auto text-center">Nos Divisions</a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 right-10 z-10 flex gap-3">
+      <button onclick="setSlide(0)" class="hero-dot w-12 h-1.5 rounded-full bg-gold transition-colors"></button>
+      <button onclick="setSlide(1)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
+      <button onclick="setSlide(2)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
+      <button onclick="setSlide(3)" class="hero-dot w-12 h-1.5 rounded-full bg-white/30 transition-colors"></button>
+    </div>
+    
+    <div class="absolute bottom-10 right-40 z-10 font-mono text-sm text-white font-bold" id="slide-num">01</div>
+    
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-60">
+      <span class="text-[10px] uppercase tracking-widest text-white">Découvrir</span>
+      <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- QUICK OVERVIEW SECTION -->
+  <section class="py-20 bg-navy-deeper border-y border-white/5 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Un écosystème d'excellence panafricain</h2>
+        <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="services.html#construction" class="glass-panel rounded-2xl p-6 border border-white/5 glow-steel flex flex-col gap-4 group">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M4 21V10l8-7 8 7v11M9 21v-6a1 1 0 011-1h4a1 1 0 011 1v6"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 6h.01M9 9h.01M15 6h.01M15 9h.01"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg">Magem Construct</h3>
+          <p class="text-sm text-gray-400">Infrastructures civiles, routes et bâtiments durables.</p>
+          <div class="mt-auto pt-4 flex justify-end text-gold opacity-50 group-hover:opacity-100 transition-opacity">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        <a href="services.html#mines" class="glass-panel rounded-2xl p-6 border border-white/5 glow-steel flex flex-col gap-4 group">
+          <div class="w-12 h-12 rounded-xl bg-energy/10 flex items-center justify-center text-energy group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-width="1.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 1v6m0 6v6M23 12h-6m-6 0H5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.36 5.64l-4.24 4.24m0 4.24l4.24 4.24M5.64 5.64l4.24 4.24m0 4.24l-4.24 4.24"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg">Mines & Énergie</h3>
+          <p class="text-sm text-gray-400">Conseil stratégique et déploiement de centrales solaires.</p>
+          <div class="mt-auto pt-4 flex justify-end text-energy opacity-50 group-hover:opacity-100 transition-opacity">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        <a href="services.html#telecom" class="glass-panel rounded-2xl p-6 border border-white/5 glow-steel flex flex-col gap-4 group">
+          <div class="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center text-electric group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg">Télécoms</h3>
+          <p class="text-sm text-gray-400">Réseaux fibre optique et hébergement de données (Datacenter).</p>
+          <div class="mt-auto pt-4 flex justify-end text-electric opacity-50 group-hover:opacity-100 transition-opacity">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        <a href="fondation.html" class="glass-panel rounded-2xl p-6 border border-white/5 glow-steel flex flex-col gap-4 group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg">Fondation</h3>
+          <p class="text-sm text-gray-400">Santé, éducation et accès à l'eau potable pour les communautés.</p>
+          <div class="mt-auto pt-4 flex justify-end text-emerald-400 opacity-50 group-hover:opacity-100 transition-opacity">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="py-20 bg-navy border-y border-white/5 relative z-20">
+    <div class="absolute inset-0 cyber-grid opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-2">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <span class="font-display font-extrabold text-4xl text-white" id="stat-projets" data-target="150">0</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Projets Réalisés</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-electric/10 flex items-center justify-center text-electric mb-2">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <span class="font-display font-extrabold text-4xl text-white" id="stat-staff" data-target="500">0</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Collaborateurs</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 mb-2">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <span class="font-display font-extrabold text-4xl text-white" id="stat-provinces" data-target="8">0</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Provinces Couvertes</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-energy/10 flex items-center justify-center text-energy mb-2">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <span class="font-display font-extrabold text-4xl text-white" id="stat-partenaires" data-target="25">0</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Partenaires</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS MARQUEE -->
+  <section class="py-16 bg-[#080a0e] border-b border-white/5 relative z-20">
+    <div class="text-center mb-10">
+      <h3 class="text-xs font-bold uppercase tracking-widest text-gray-500">Ils nous font confiance</h3>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track items-center">
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/voda.png" alt="Vodacom" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/rawbank.png" alt="Rawbank" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/Orange_logo.svg.png" alt="Orange" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/images.png" alt="Partenaire" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/images (1).png" alt="Partenaire" class="h-16 object-contain">
+        </div>
+        
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/voda.png" alt="Vodacom" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/rawbank.png" alt="Rawbank" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/Orange_logo.svg.png" alt="Orange" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/images.png" alt="Partenaire" class="h-16 object-contain">
+        </div>
+        <div class="grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+          <img src="part/images (1).png" alt="Partenaire" class="h-16 object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('accueil');
+      initFooter();
+      initChatbot();
+      if(typeof initHomePage==='function') initHomePage();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

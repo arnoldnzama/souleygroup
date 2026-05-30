@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Projets — Souley Group</title>
+  <meta name="description" content="Réalisations physiques et numériques à travers la RDC.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Nos Projets — Souley Group">
+  <meta property="og:description" content="Réalisations physiques et numériques à travers la RDC.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero min-h-[340px]">
+    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80" alt="Projets" class="absolute inset-0 w-full h-full object-cover">
+    <div class="page-hero-content max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Accueil <span class="mx-2">&gt;</span> <span class="text-white">Projets</span></div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">Nos Projets Phares</h1>
+      <p class="text-lg text-gray-300 max-w-2xl">Réalisations physiques et numériques à travers la RDC.</p>
+    </div>
+  </section>
+
+  <!-- FILTERS & GRID -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+        <h2 class="font-display font-bold text-3xl">Portfolio</h2>
+        <div class="flex flex-wrap gap-3">
+          <button id="filter-all" onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 bg-gold text-black transition-colors">Tous</button>
+          <button id="filter-construction" onclick="filterProjects('construction')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Construction</button>
+          <button id="filter-mines" onclick="filterProjects('mines')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Mines & Énergie</button>
+          <button id="filter-telecom" onclick="filterProjects('telecom')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Télécoms</button>
+          <button id="filter-fondation" onclick="filterProjects('fondation')" class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Fondation</button>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Loader -->
+        <div class="col-span-full flex justify-center py-12"><div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT MODAL -->
+  <div id="project-modal" class="fixed inset-0 bg-black/85 z-[999] opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-4xl rounded-2xl overflow-hidden border border-white/10 flex flex-col md:flex-row relative max-h-[90vh]">
+      <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-gold hover:text-black transition-colors"><i data-lucide="x" class="w-4 h-4"></i></button>
+      
+      <div class="md:w-1/2 relative h-64 md:h-auto bg-black">
+        <img id="modal-image" src="" alt="Projet" class="w-full h-full object-cover opacity-80">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent p-8 flex flex-col justify-end">
+          <span id="modal-division" class="px-2.5 py-1 rounded font-black uppercase text-[10px] tracking-wider mb-2 inline-block self-start"></span>
+          <h2 id="modal-title" class="font-display font-bold text-2xl text-white"></h2>
+        </div>
+      </div>
+      
+      <div class="md:w-1/2 p-8 flex flex-col overflow-y-auto">
+        <h3 class="font-display font-bold text-lg mb-4 border-b border-white/10 pb-2">Détails du Projet</h3>
+        <p id="modal-desc" class="text-sm text-gray-300 leading-relaxed mb-6"></p>
+        
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-500 uppercase block mb-1">Client / Partenaire</span>
+            <span id="modal-client" class="text-sm font-semibold text-white"></span>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-500 uppercase block mb-1">Localisation</span>
+            <span id="modal-location" class="text-sm font-semibold text-white"></span>
+          </div>
+          <div class="bg-white/5 p-3 rounded-xl border border-white/5">
+            <span class="text-[10px] text-gray-500 uppercase block mb-1">Année</span>
+            <span id="modal-year" class="text-sm font-semibold text-white"></span>
+          </div>
+        </div>
+        
+        <h3 class="font-display font-bold text-sm text-gold mb-2">Impact & Résultats</h3>
+        <p id="modal-impact" class="text-sm text-gray-300 bg-gold/10 border border-gold/20 p-4 rounded-xl mb-6"></p>
+        
+        <div class="mt-auto pt-4 border-t border-white/10 text-center">
+          <a href="contact.html" class="text-xs font-bold uppercase tracking-wider text-white hover:text-gold transition-colors">Contacter l'équipe projet <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('projets');
+      initFooter();
+      initChatbot();
+      if(typeof initProjetsPage==='function') initProjetsPage();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

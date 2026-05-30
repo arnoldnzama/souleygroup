@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fondation Souley — Souley Group</title>
+  <meta name="description" content="Développement humain, accès à la santé, éducation et eau potable en RDC.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Fondation Souley — Souley Group">
+  <meta property="og:description" content="Développement humain, accès à la santé, éducation et eau potable en RDC.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero min-h-[380px]">
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80" alt="Fondation" class="absolute inset-0 w-full h-full object-cover">
+    <div class="page-hero-content max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Accueil <span class="mx-2">&gt;</span> <span class="text-white">Fondation</span></div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">Fondation Souley Group</h1>
+      <p class="text-lg text-gray-300 max-w-2xl">Bâtir un avenir solidaire et durable pour les communautés en RDC.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2 block">Notre Engagement Citoyen</span>
+          <h2 class="font-display font-bold text-3xl mb-6">Pour le développement humain</h2>
+          <p class="text-gray-400 mb-10 leading-relaxed">La Fondation Souley canalise la responsabilité sociale du groupe pour apporter des solutions concrètes aux défis de base des communautés congolaises.</p>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0"><i data-lucide="stethoscope" class="w-6 h-6"></i></div>
+              <div>
+                <h4 class="font-bold text-white text-lg mb-1">Soins de Santé Gratuits</h4>
+                <p class="text-sm text-gray-400">Construction d'hôpitaux de campagne et maternités alimentées à l'énergie solaire.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
+              <div>
+                <h4 class="font-bold text-white text-lg mb-1">Éducation & Technologie</h4>
+                <p class="text-sm text-gray-400">Programme de bourses d'excellence STEM et dons de matériel informatique aux écoles.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0"><i data-lucide="droplet" class="w-6 h-6"></i></div>
+              <div>
+                <h4 class="font-bold text-white text-lg mb-1">Adduction d'Eau Potable</h4>
+                <p class="text-sm text-gray-400">Forages équipés de pompes solaires pour les villages et zones périurbaines.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="relative overflow-hidden rounded-2xl aspect-[3/4] glow-green border border-emerald-500/20">
+              <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Clinique" class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="relative overflow-hidden rounded-2xl aspect-[4/3] border border-white/5">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" alt="Étudiants" class="w-full h-full object-cover">
+              </div>
+              <div class="glass-panel flex-1 rounded-2xl border border-emerald-500/30 flex flex-col items-center justify-center p-6 text-center">
+                <span class="font-display font-extrabold text-4xl text-emerald-400 mb-2">15k+</span>
+                <span class="text-xs uppercase tracking-wider text-gray-300 font-bold">Bénéficiaires Directs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT NUMBERS -->
+  <section class="py-20 bg-navy border-y border-white/5 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 mb-2"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg></div>
+          <span class="font-display font-extrabold text-4xl text-white">15 000+</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Bénéficiaires</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 mb-2"><i data-lucide="graduation-cap" class="w-6 h-6"></i></div>
+          <span class="font-display font-extrabold text-4xl text-white">85</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Boursières Diplômées</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 mb-2"><i data-lucide="building" class="w-6 h-6"></i></div>
+          <span class="font-display font-extrabold text-4xl text-white">3</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Cliniques Construites</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-14 h-14 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 mb-2"><i data-lucide="droplet" class="w-6 h-6"></i></div>
+          <span class="font-display font-extrabold text-4xl text-white">12</span>
+          <span class="text-xs uppercase tracking-wider text-gray-400 font-bold">Forages d'Eau</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS FONDATION -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="font-display font-bold text-3xl mb-4">Nos Actions Phares</h2>
+        <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-panel rounded-2xl border border-white/5 overflow-hidden flex flex-col glow-steel">
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80" alt="Hôpital" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500 text-white">Santé</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-display font-bold text-lg text-white mb-2">Hôpital Communautaire Kipushi</h3>
+            <p class="text-sm text-gray-400 mb-4">Construction et équipement d'une clinique pédiatrique de 45 lits fonctionnant 100% à l'énergie solaire.</p>
+            <a href="#" class="mt-auto text-emerald-400 font-bold text-xs uppercase flex items-center gap-1 hover:text-white transition-colors">En savoir plus <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="glass-panel rounded-2xl border border-white/5 overflow-hidden flex flex-col glow-steel">
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Bourses" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500 text-white">Éducation</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-display font-bold text-lg text-white mb-2">Bourses Souley Tech</h3>
+            <p class="text-sm text-gray-400 mb-4">Financement complet des études supérieures pour des jeunes filles talentueuses dans les filières scientifiques et technologiques (STEM).</p>
+            <a href="#" class="mt-auto text-emerald-400 font-bold text-xs uppercase flex items-center gap-1 hover:text-white transition-colors">En savoir plus <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div class="glass-panel rounded-2xl border border-white/5 overflow-hidden flex flex-col glow-steel">
+          <div class="relative overflow-hidden aspect-[16/10]">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Eau" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500 text-white">Infrastructures Vitales</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-display font-bold text-lg text-white mb-2">Programme Eau Propre</h3>
+            <p class="text-sm text-gray-400 mb-4">Installation de systèmes de pompage et purification d'eau autonomes dans 12 villages reculés du Lualaba.</p>
+            <a href="#" class="mt-auto text-emerald-400 font-bold text-xs uppercase flex items-center gap-1 hover:text-white transition-colors">En savoir plus <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-emerald-900/20 border-y border-emerald-500/10 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display font-bold text-2xl mb-6 text-white">Rejoignez notre mission humanitaire</h2>
+      <a href="contact.html" class="px-8 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold uppercase rounded-lg text-sm transition-colors inline-block">Soutenir la fondation</a>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('fondation');
+      initFooter();
+      initChatbot();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

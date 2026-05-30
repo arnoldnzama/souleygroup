@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Services — Souley Group</title>
+  <meta name="description" content="Découvrez nos 4 divisions : Magem Construct, Mines & Énergie, Télécoms, Fondation.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Nos Services — Souley Group">
+  <meta property="og:description" content="Découvrez nos 4 divisions : Magem Construct, Mines & Énergie, Télécoms, Fondation.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero min-h-[340px]">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80" alt="Services" class="absolute inset-0 w-full h-full object-cover">
+    <div class="page-hero-content max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Accueil <span class="mx-2">&gt;</span> <span class="text-white">Services</span></div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">Un écosystème d'excellence</h1>
+      <p class="text-lg text-gray-300 max-w-2xl">Quatre divisions coordonnées, une gouvernance solide.</p>
+    </div>
+  </section>
+
+  <!-- DIVISION TABS & CONTENT -->
+  <section class="py-24 bg-charcoal cyber-grid relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      
+      <div class="flex flex-wrap gap-4 mb-16 justify-center">
+        <button id="tab-btn-construction" onclick="setActiveDivisionTab('construction')" class="division-tab px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-gold/30 bg-gold/10 text-gold transition-all">Magem Construct</button>
+        <button id="tab-btn-mines" onclick="setActiveDivisionTab('mines')" class="division-tab px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:bg-white/5 text-gray-400 transition-all">Mines & Énergie</button>
+        <button id="tab-btn-telecom" onclick="setActiveDivisionTab('telecom')" class="division-tab px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:bg-white/5 text-gray-400 transition-all">Télécoms</button>
+        <button id="tab-btn-fondation" onclick="setActiveDivisionTab('fondation')" class="division-tab px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider border border-white/10 hover:bg-white/5 text-gray-400 transition-all">Fondation</button>
+      </div>
+
+      <!-- PANEL A: CONSTRUCTION -->
+      <div id="div-panel-construction" class="division-content-panel grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold text-gold uppercase tracking-widest mb-2 block">Génie Civil & Construction</span>
+          <h3 class="font-display font-bold text-3xl mb-4">MAGEM CONSTRUCT / <span class="text-gold">Bâtir l'avenir</span></h3>
+          <p class="text-gray-400 mb-8 leading-relaxed">Leader dans la construction d'infrastructures lourdes, routes et bâtiments durables en République Démocratique du Congo.</p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-gold"></i> Routes & Ponts</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-gold"></i> Bâtiments Durables</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-gold"></i> Génie Civil Industriel</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-gold"></i> Bureaux d'Études</li>
+          </ul>
+          <a href="projets.html" class="btn-premium glow-btn-gold px-8 py-3 bg-gold text-black font-bold uppercase rounded-lg text-sm inline-block">Voir nos réalisations</a>
+        </div>
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(212,160,23,0.15)] group">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Construction" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-6">
+              <span class="px-3 py-1 bg-gold text-black text-[10px] font-bold uppercase rounded">Projet Phare</span>
+              <h4 class="text-white font-bold text-xl mt-2">Route Nationale 1</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL B: MINES -->
+      <div id="div-panel-mines" class="division-content-panel hidden grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold text-energy uppercase tracking-widest mb-2 block">Conseil & Initiatives</span>
+          <h3 class="font-display font-bold text-3xl mb-4">CONSEIL MINIER / <span class="text-energy">Faciliter l'industrie</span></h3>
+          <p class="text-gray-400 mb-8 leading-relaxed">Accompagnement stratégique des acteurs miniers et déploiement de solutions d'énergie solaire autonomes pour les sites isolés.</p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-energy"></i> Conseil Réglementation</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-energy"></i> Parcs Solaires</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-energy"></i> Conformité RSE</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-energy"></i> Facilitation Investissements</li>
+          </ul>
+          <a href="projets.html" class="px-8 py-3 bg-energy hover:bg-emerald-600 text-white font-bold uppercase rounded-lg text-sm transition-colors inline-block">Voir les projets</a>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="glass-panel p-8 rounded-3xl border border-energy/30 glow-green">
+            <div class="flex justify-between items-center mb-6">
+              <h4 class="font-display text-lg font-bold text-white">Monitoring Énergie</h4>
+              <span class="flex h-3 w-3 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-energy opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-energy"></span></span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="bg-black/30 rounded-xl p-4 border border-white/5"><div class="text-gray-500 text-xs mb-1">Production Active</div><div class="text-2xl font-bold text-energy">48.2 MW</div></div>
+              <div class="bg-black/30 rounded-xl p-4 border border-white/5"><div class="text-gray-500 text-xs mb-1">CO2 Économisé</div><div class="text-2xl font-bold text-white">182.4 T/j</div></div>
+            </div>
+            <div class="flex items-end justify-between h-32 gap-2">
+              <div class="w-full bg-energy/20 rounded-t-sm h-[30%] relative"><span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-500">06:00</span></div>
+              <div class="w-full bg-energy/40 rounded-t-sm h-[50%]"></div>
+              <div class="w-full bg-energy/60 rounded-t-sm h-[75%]"></div>
+              <div class="w-full bg-energy rounded-t-sm h-[100%] relative"><span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-500">12:00</span></div>
+              <div class="w-full bg-energy/80 rounded-t-sm h-[85%]"></div>
+              <div class="w-full bg-energy/50 rounded-t-sm h-[60%]"></div>
+              <div class="w-full bg-energy/30 rounded-t-sm h-[40%] relative"><span class="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-gray-500">18:00</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL C: TELECOM -->
+      <div id="div-panel-telecom" class="division-content-panel hidden grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold text-electric uppercase tracking-widest mb-2 block">Souveraineté Numérique</span>
+          <h3 class="font-display font-bold text-3xl mb-4">SOULEY NETWORKS / <span class="text-electric">Connectivité</span></h3>
+          <p class="text-gray-400 mb-8 leading-relaxed">Déploiement de réseaux fibre optique métropolitains et hébergement de données sécurisé dans nos Datacenters locaux.</p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-electric"></i> Fibres FTTX</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-electric"></i> Cloud Local Tier III</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-electric"></i> Cybersécurité</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-electric"></i> SD-WAN Entreprise</li>
+          </ul>
+          <a href="projets.html" class="px-8 py-3 bg-electric hover:bg-blue-500 text-white font-bold uppercase rounded-lg text-sm transition-colors inline-block">Voir le réseau</a>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="glass-panel p-8 rounded-3xl border border-electric/30 glow-blue relative h-80 flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 cyber-grid-animated opacity-20"></div>
+            <div class="relative z-10 w-48 h-48 rounded-full border-2 border-dashed border-electric/40 animate-[spin_10s_linear_infinite] flex items-center justify-center">
+              <div class="w-32 h-32 rounded-full border border-electric/60 animate-[spin_5s_linear_infinite_reverse] flex items-center justify-center bg-electric/10 backdrop-blur-md">
+                <i data-lucide="database" class="w-10 h-10 text-electric animate-pulse"></i>
+              </div>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-lg p-3 text-xs font-mono text-electric flex justify-between">
+              <span>SOULEY_GW_01 ● Connecté</span>
+              <span>Latence: 4ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL D: FONDATION -->
+      <div id="div-panel-fondation" class="division-content-panel hidden grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6">
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2 block">Responsabilité Sociale</span>
+          <h3 class="font-display font-bold text-3xl mb-4">FONDATION SOULEY / <span class="text-emerald-400">Rendre à nos communautés</span></h3>
+          <p class="text-gray-400 mb-8 leading-relaxed">Engagement citoyen fort pour l'accès aux soins, à l'éducation et à l'eau potable.</p>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-emerald-400"></i> Cliniques Gratuites</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-emerald-400"></i> Bourses STEM</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-emerald-400"></i> Accès Eau Potable</li>
+            <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-emerald-400"></i> Assistance Sociale</li>
+          </ul>
+          <a href="fondation.html" class="px-8 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold uppercase rounded-lg text-sm transition-colors inline-block">Découvrir la Fondation</a>
+        </div>
+        <div class="lg:col-span-6 relative">
+          <div class="relative rounded-3xl overflow-hidden border border-emerald-500/20 shadow-[0_0_50px_rgba(16,185,129,0.15)] group">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Fondation" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-6 left-6 bg-emerald-500 text-white font-bold px-4 py-2 rounded-lg shadow-lg">
+              15 000+ Vies Impactées
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy border-y border-white/5 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display font-bold text-2xl mb-6">Découvrez nos réalisations concrètes</h2>
+      <a href="projets.html" class="btn-premium glow-btn-gold px-8 py-3 bg-gold text-black font-bold uppercase rounded-lg text-sm inline-block">Voir le portfolio Projets</a>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('services');
+      initFooter();
+      initChatbot();
+      if(typeof initServicesPage==='function') initServicesPage();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

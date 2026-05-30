@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Événements — Souley Group</title>
+  <meta name="description" content="Conférences, inaugurations, salons professionnels et forums du groupe Souley.">
+  <link rel="icon" type="image/x-icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon" href="ico/favicon.ico">
+  <meta property="og:image" content="ico/favicon.ico">
+  <meta property="og:title" content="Événements — Souley Group">
+  <meta property="og:description" content="Conférences, inaugurations, salons professionnels et forums du groupe Souley.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="ico/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: { DEFAULT: '#1B3A5C', dark: '#0F2439', deeper: '#0A1628' },
+            steel: { DEFAULT: '#3D6B99', light: '#5A8ABF' },
+            silver: { DEFAULT: '#8A9BB0', light: '#A8B5C5' },
+            gold: { DEFAULT: '#D4A017', dark: '#b38410' },
+            electric: '#008CFF',
+            energy: '#00B26F',
+            charcoal: '#0C1018',
+            creme: '#F0F2F5',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  </head>
+<body class="bg-charcoal text-creme antialiased overflow-x-hidden">
+  <div id="navbar-container"></div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero min-h-[380px]">
+    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=80" alt="Événements" class="absolute inset-0 w-full h-full object-cover">
+    <div class="page-hero-content max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Accueil <span class="mx-2">&gt;</span> <span class="text-white">Événements</span></div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">Événements & Rencontres</h1>
+      <p class="text-lg text-gray-300 max-w-2xl">Conférences, inaugurations, salons professionnels et forums du groupe Souley.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED EVENT -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center gap-2 mb-8">
+        <i data-lucide="star" class="w-5 h-5 text-gold"></i>
+        <h2 class="font-display font-bold text-2xl uppercase tracking-wider">Événement à la Une</h2>
+      </div>
+      
+      <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 glow-steel">
+        <div class="grid lg:grid-cols-12">
+          <div class="lg:col-span-7 relative h-64 lg:h-auto">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80" alt="Featured" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:hidden"></div>
+          </div>
+          <div class="lg:col-span-5 p-8 flex flex-col">
+            <div class="flex justify-between items-start mb-6">
+              <span class="bg-steel text-white text-[9px] uppercase tracking-widest px-3 py-1 rounded">Conférence</span>
+              <div class="event-date-badge border-gold/30 shadow-[0_0_15px_rgba(212,160,23,0.15)]">
+                <span class="day text-gold">15</span>
+                <span class="month">JUL</span>
+                <span class="text-[8px] font-bold mt-0.5">2026</span>
+              </div>
+            </div>
+            
+            <h3 class="font-display font-bold text-2xl text-white mb-4">Forum Panafricain de l'Infrastructure Durable 2026</h3>
+            <p class="text-sm text-gray-300 mb-6 leading-relaxed flex-1">Le plus grand rassemblement d'experts africains et internationaux en infrastructure durable. Participez à nos tables rondes, écoutez des keynotes inspirantes et développez votre réseau stratégique en RDC.</p>
+            
+            <div class="flex flex-col gap-3 mb-8">
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-gold"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                Pullman Grand Hôtel, Kinshasa Gombe
+              </div>
+              <div class="flex items-center gap-3 text-sm text-gray-400">
+                <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-gold"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                09:00 — 18:00
+              </div>
+            </div>
+            
+            <a href="contact.html" class="w-full text-center py-4 bg-gold hover:bg-gold-dark text-black font-bold uppercase tracking-widest rounded-xl transition-colors">S'inscrire à l'événement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS & EVENTS GRID -->
+  <section class="py-24 bg-navy-deeper/30 border-y border-white/5 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+        <h2 class="font-display font-bold text-3xl">Agenda Complet</h2>
+        <div class="flex flex-wrap gap-2">
+          <button id="efilter-all" onclick="filterEvents('all')" class="event-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 bg-steel text-white transition-colors">Tous</button>
+          <button id="efilter-conference" onclick="filterEvents('conference')" class="event-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Conférences</button>
+          <button id="efilter-inauguration" onclick="filterEvents('inauguration')" class="event-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Inaugurations</button>
+          <button id="efilter-salon" onclick="filterEvents('salon')" class="event-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Salons</button>
+          <button id="efilter-atelier" onclick="filterEvents('atelier')" class="event-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/10 text-gray-400 hover:text-white transition-colors">Ateliers</button>
+        </div>
+      </div>
+
+      <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Loader -->
+        <div class="col-span-full flex justify-center py-12"><div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST EVENTS -->
+  <section class="py-24 bg-charcoal">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="mb-12">
+        <h2 class="font-display font-bold text-3xl mb-4">Événements Passés</h2>
+        <div class="w-16 h-1 bg-white/10 rounded-full"></div>
+      </div>
+      <div id="past-events-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Loader -->
+        <div class="col-span-full flex justify-center py-12"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-steel"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-navy border-y border-white/5 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-display font-bold text-2xl mb-6">Organisons ensemble votre prochain événement</h2>
+      <a href="contact.html" class="btn-premium glow-btn-gold px-8 py-3 bg-gold text-black font-bold uppercase rounded-lg text-sm inline-block">Contactez-nous</a>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+  <div id="chatbot-container"></div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="components.js?v=3.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="animations.js?v=1.0"></script>
+  <script src="app.js?v=3.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('evenements');
+      initFooter();
+      initChatbot();
+      if(typeof initEvenementsPage==='function') initEvenementsPage();
+      // Initialiser les icônes Lucide
+      if(typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
