@@ -186,10 +186,29 @@ html{scroll-behavior:smooth}
 #mobile-menu {
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   max-height: calc(100vh - 96px);
+  flex-direction: column;
+}
+
+#mobile-menu:not(.hidden) {
+  display: flex !important;
 }
 
 #mobile-menu.hidden {
   display: none !important;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
 }
 
 /* Mobile submenu animations */
@@ -217,10 +236,21 @@ html{scroll-behavior:smooth}
   nav.hidden.xl\\:flex {
     display: none !important;
   }
+
+  .desktop-nav-actions {
+    display: none !important;
+  }
   
   /* Show mobile menu button */
   #mobile-menu-btn {
     display: block !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #mobile-menu {
+    top: 80px !important;
+    max-height: calc(100vh - 80px);
   }
 }
 

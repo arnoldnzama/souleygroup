@@ -99,7 +99,7 @@ function initNavbar(currentPage) {
     return `<a href="${p.href}" class="text-[13px] font-medium ${cls} transition-all py-1 border-b-2 border-transparent hover:border-gold">${p.label}</a>`;
   }).join('');
 
-  const mobileLinks = pages.map(p => {
+  const mobileLinks = pages.filter(p => p.id !== 'contact').map(p => {
     const cls = p.id === currentPage ? 'text-gold border-b-2 border-gold' : 'text-navy border-b-2 border-transparent';
     if (p.hasMega) {
       return `
@@ -133,7 +133,7 @@ function initNavbar(currentPage) {
           <img src="logo/sg.png" alt="Souley Group" class="h-20 md:h-24 lg:h-24 w-auto group-hover:opacity-80 transition-opacity">
         </a>
         <nav class="hidden xl:flex items-center gap-8">${navLinks}</nav>
-        <div class="hidden xl:flex items-center gap-4">
+        <div class="desktop-nav-actions hidden xl:flex items-center gap-4">
           <a href="contact.html" class="text-[13px] font-medium text-white bg-gold hover:bg-gold-dark transition-colors px-6 py-2.5 rounded">Contact</a>
           <button class="text-gray-600 hover:text-navy transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
@@ -145,9 +145,9 @@ function initNavbar(currentPage) {
       </div>
     </div>
     <div class="xl:hidden fixed inset-x-0 top-[96px] bottom-0 bg-white z-40 flex-col p-6 sm:p-8 transition-all duration-300 overflow-y-auto hidden" id="mobile-menu">
-      <div class="flex flex-col gap-2 text-left mt-6">${mobileLinks}</div>
-      <div class="mt-auto pt-8 flex flex-col gap-3">
-        <a href="contact.html" class="text-center bg-gold text-white font-bold tracking-wider py-3 rounded">Contact</a>
+      <div class="mobile-menu-links flex flex-col gap-2 text-left mt-4">${mobileLinks}</div>
+      <div class="mobile-menu-actions mt-8 pt-4 flex flex-col gap-3">
+        <a href="contact.html" class="mobile-contact-link text-center bg-gold text-white font-bold tracking-wider py-3 rounded">Contact</a>
       </div>
     </div>
   </header>`;
@@ -191,16 +191,16 @@ function initNavbar(currentPage) {
       }
     });
     
-    // Fermer le menu quand on clique sur un lien (sauf les sous-menus)
-    document.querySelectorAll('.mobile-nav-link').forEach(l => {
-      if (!l.closest('.mobile-submenu-wrapper') || l.tagName === 'A') {
-        l.addEventListener('click', () => {
-          menu.classList.add('hidden');
-          btn.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-          btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
-        });
-      }
+    const closeMobileMenu = () => {
+      menu.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      btn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    };
+
+    // Fermer le menu quand on clique sur un vrai lien.
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
     });
   } else {
     console.error('Mobile menu elements not found:', { btn: !!btn, menu: !!menu });
@@ -212,24 +212,19 @@ window.toggleMobileSubmenu = function(id) {
   const submenu = document.getElementById(`mobile-submenu-${id}`);
   const icon = document.getElementById(`mobile-submenu-icon-${id}`);
   if (submenu && icon) {
-    const isHidden = submenu.classList.contains('hidden');
-    submenu.classList.toggle('hidden');
-    icon.classList.toggle('rotate-180');
-    
-    // Animation GSAP si disponible
-    if (!isHidden && typeof gsap !== 'undefined') {
-      gsap.to(submenu, {
-        maxHeight: 0,
-        duration: 0.3,
-        ease: 'power2.inOut'
-      });
-    } else if (isHidden && typeof gsap !== 'undefined') {
-      gsap.from(submenu.querySelectorAll('a'), {
-        x: -20,
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.05,
-        ease: 'power2.out'
+    const isOpening = submenu.classList.contains('hidden');
+    submenu.classList.toggle('hidden', !isOpening);
+    submenu.style.maxHeight = isOpening ? `${submenu.scrollHeight}px` : '0px';
+    icon.classList.toggle('rotate-180', isOpening);
+
+    if (isOpening && typeof gsap !== 'undefined') {
+      gsap.fromTo(submenu.querySelectorAll('a'), { x: -12, opacity: 0 }, {
+        x: 0,
+        opacity: 1,
+        duration: 0.25,
+        stagger: 0.04,
+        ease: 'power2.out',
+        clearProps: 'transform,opacity'
       });
     }
   }
