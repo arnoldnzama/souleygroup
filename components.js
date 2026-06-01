@@ -236,18 +236,44 @@ function initNavbar(currentPage) {
     });
     
     // Attacher les événements aux liens APRÈS l'injection du HTML
-    // Utiliser la délégation d'événements pour capturer tous les clics sur les liens
+    // Utiliser DEUX méthodes pour garantir que ça fonctionne
+    
+    // Méthode 1 : Délégation d'événements sur le menu
     menu.addEventListener('click', (e) => {
-      // Vérifier si l'élément cliqué est un lien <a>
       const link = e.target.closest('a');
       if (link && link.href) {
-        // Laisser le navigateur suivre le lien
+        console.log('🔗 Navigation vers:', link.href);
+        // Laisser le navigateur suivre le lien naturellement
         // Fermer le menu après un court délai
         setTimeout(() => {
           closeMenu();
         }, 100);
       }
     });
+    
+    // Méthode 2 : Attacher directement aux liens après un délai
+    // (pour s'assurer que le HTML est bien injecté)
+    setTimeout(() => {
+      const allLinks = menu.querySelectorAll('a');
+      console.log('📋 Liens trouvés:', allLinks.length);
+      
+      allLinks.forEach((link, index) => {
+        // Vérifier que le lien a un href
+        if (link.href) {
+          console.log(`  ${index + 1}. ${link.textContent.trim()} → ${link.href}`);
+          
+          // Ajouter un événement de clic direct
+          link.addEventListener('click', (e) => {
+            console.log('✅ Clic direct sur:', link.textContent.trim());
+            // Ne pas empêcher le comportement par défaut
+            // Juste fermer le menu
+            setTimeout(() => {
+              closeMenu();
+            }, 100);
+          });
+        }
+      });
+    }, 100);
     
     // Fermer le menu au clic en dehors
     document.addEventListener('click', (e) => {
