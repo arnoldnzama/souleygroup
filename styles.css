@@ -181,6 +181,33 @@ html{scroll-behavior:smooth}
   --nav-height: 80px;
 }
 
+/* Logos header & footer — mobile et tablette (< 1280px) */
+@media (max-width: 1279px) {
+  .site-logo--header {
+    height: 5.5rem !important;
+    max-height: 88px;
+    width: auto;
+  }
+
+  .site-logo--footer {
+    height: 7.5rem !important;
+    max-height: 120px;
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .site-logo--header {
+    height: 6.5rem !important;
+    max-height: 104px;
+  }
+
+  .site-logo--footer {
+    height: 8rem !important;
+    max-height: 128px;
+  }
+}
+
 @media (max-width: 1279px) {
   nav.hidden.xl\\:flex {
     display: none !important;

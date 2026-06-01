@@ -128,9 +128,9 @@ function initNavbar(currentPage) {
   <div class="fixed top-0 left-0 w-full h-[2px] bg-gold z-[9999] origin-left scale-x-0" id="scroll-progress"></div>
   <header class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 bg-white border-b border-gray-200" id="navbar">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="navbar-inner flex items-center justify-between min-h-[72px] sm:min-h-[80px] xl:min-h-[80px] py-2 xl:py-0">
+      <div class="navbar-inner flex items-center justify-between min-h-[80px] sm:min-h-[88px] md:min-h-[96px] xl:min-h-[80px] py-2 xl:py-0">
         <a href="index.html" class="flex items-center gap-3 group relative shrink-0">
-          <img src="logo/sg.png" alt="Souley Group" class="h-14 sm:h-16 md:h-20 xl:h-24 w-auto group-hover:opacity-80 transition-opacity">
+          <img src="logo/sg.png" alt="Souley Group" class="site-logo site-logo--header h-20 sm:h-24 md:h-28 xl:h-24 w-auto group-hover:opacity-80 transition-opacity">
         </a>
         <nav class="hidden xl:flex items-center gap-8" aria-label="Navigation principale">${navLinks}</nav>
         <div class="desktop-nav-actions hidden xl:flex items-center gap-4">
@@ -287,7 +287,7 @@ function initFooter() {
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         <div class="flex flex-col gap-4">
-          <img src="logo/sg.png" alt="Souley Group" class="h-20 md:h-24 lg:h-24 w-auto self-start">
+          <img src="logo/sg.png" alt="Souley Group" class="site-logo site-logo--footer h-28 sm:h-32 xl:h-24 w-auto self-start">
           <p class="text-sm text-gray-600 leading-relaxed">Bâtir l'excellence industrielle et l'émergence technologique en RDC.</p>
           <div class="flex items-center gap-3 mt-2">
             <a href="#" class="w-9 h-9 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-gold hover:border-gold transition-all">
