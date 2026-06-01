@@ -100,62 +100,63 @@ function initNavbar(currentPage) {
   }).join('');
 
   const mobileLinks = pages.filter(p => p.id !== 'contact').map(p => {
-    const cls = p.id === currentPage ? 'text-gold border-l-4 border-gold bg-gold/5' : 'text-navy border-l-4 border-transparent';
+    const cls = p.id === currentPage ? 'is-active' : '';
     if (p.hasMega) {
       return `
-        <div class="mobile-submenu-wrapper">
-          <div class="flex items-center">
-            <a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg flex-1 cursor-pointer">${p.label}</a>
-            <button onclick="event.stopPropagation(); toggleMobileSubmenu('groupe')" class="p-3 text-navy hover:text-gold transition-colors flex-shrink-0" aria-label="Toggle submenu">
-              <svg class="w-5 h-5 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-          </div>
-          <div class="mobile-submenu hidden pl-6 py-2 space-y-1" id="mobile-submenu-groupe">
-            <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors cursor-pointer">Notre Vision</a>
-            <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors cursor-pointer">Nos Projets</a>
-            <div class="border-t border-gray-200 my-2 pt-2">
-              <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 px-3">Nos Divisions</p>
-              <a href="services.html#construction" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Magem Construct</a>
-              <a href="services.html#mines" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Mines & Énergie</a>
-              <a href="services.html#telecom" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Télécoms</a>
-              <a href="fondation.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Fondation</a>
-            </div>
-          </div>
-        </div>`;
+        <li class="mobile-nav-item mobile-nav-item--split">
+          <a href="${p.href}" class="mobile-nav-link ${cls}">${p.label}</a>
+          <button type="button" class="mobile-nav-toggle" aria-controls="mobile-sub-groupe" aria-expanded="false" data-submenu-toggle="groupe" aria-label="Afficher le sous-menu Le Groupe">
+            <svg class="mobile-nav-chevron" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+        </li>
+        <li class="mobile-nav-sub-wrap" id="mobile-sub-groupe" hidden>
+          <ul class="mobile-nav-sub">
+            <li><a href="groupe.html" class="mobile-nav-sublink">Notre Vision</a></li>
+            <li><a href="projets.html" class="mobile-nav-sublink">Nos Projets</a></li>
+            <li class="mobile-nav-sub-label">Nos Divisions</li>
+            <li><a href="services.html#construction" class="mobile-nav-sublink">Magem Construct</a></li>
+            <li><a href="services.html#mines" class="mobile-nav-sublink">Mines &amp; Énergie</a></li>
+            <li><a href="services.html#telecom" class="mobile-nav-sublink">Télécoms</a></li>
+            <li><a href="fondation.html" class="mobile-nav-sublink">Fondation</a></li>
+          </ul>
+        </li>`;
     }
-    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg block cursor-pointer">${p.label}</a>`;
+    return `<li class="mobile-nav-item"><a href="${p.href}" class="mobile-nav-link ${cls}">${p.label}</a></li>`;
   }).join('');
 
   c.innerHTML = `
   <div class="fixed top-0 left-0 w-full h-[2px] bg-gold z-[9999] origin-left scale-x-0" id="scroll-progress"></div>
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-gray-200" id="navbar">
+  <header class="fixed top-0 left-0 w-full z-[100] transition-all duration-300 bg-white border-b border-gray-200" id="navbar">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20 sm:h-24 lg:h-20">
-        <a href="index.html" class="flex items-center gap-3 group z-50 relative">
-          <img src="logo/sg.png" alt="Souley Group" class="h-16 sm:h-20 md:h-24 lg:h-24 w-auto group-hover:opacity-80 transition-opacity">
+      <div class="navbar-inner flex items-center justify-between min-h-[72px] sm:min-h-[80px] xl:min-h-[80px] py-2 xl:py-0">
+        <a href="index.html" class="flex items-center gap-3 group relative shrink-0">
+          <img src="logo/sg.png" alt="Souley Group" class="h-14 sm:h-16 md:h-20 xl:h-24 w-auto group-hover:opacity-80 transition-opacity">
         </a>
-        <nav class="hidden xl:flex items-center gap-8">${navLinks}</nav>
+        <nav class="hidden xl:flex items-center gap-8" aria-label="Navigation principale">${navLinks}</nav>
         <div class="desktop-nav-actions hidden xl:flex items-center gap-4">
           <a href="contact.html" class="text-[13px] font-medium text-white bg-gold hover:bg-gold-dark transition-colors px-6 py-2.5 rounded">Contact</a>
-          <button class="text-gray-600 hover:text-navy transition-colors">
+          <button type="button" class="text-gray-600 hover:text-navy transition-colors" aria-label="Rechercher">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </button>
         </div>
-        <button class="xl:hidden text-navy hover:text-gold transition-colors focus:outline-none z-[60] relative" id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">
-          <svg class="w-7 h-7 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg class="w-7 h-7 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <button class="xl:hidden mobile-menu-btn text-navy hover:text-gold transition-colors focus:outline-none relative" id="mobile-menu-btn" type="button" aria-controls="mobile-menu-panel" aria-expanded="false" aria-label="Ouvrir le menu">
+          <svg class="w-7 h-7 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="w-7 h-7 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
-    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-[55] flex-col transition-all duration-300 opacity-0 invisible pointer-events-none" id="mobile-menu" aria-hidden="true">
-      <div class="flex-1 overflow-y-auto p-6 sm:p-8">
-        <div class="mobile-menu-links flex flex-col gap-1 text-left">${mobileLinks}</div>
+  </header>
+  <div class="mobile-drawer xl:hidden" id="mobile-drawer" aria-hidden="true">
+    <button type="button" class="mobile-drawer-backdrop" id="mobile-menu-backdrop" aria-label="Fermer le menu" tabindex="-1"></button>
+    <nav class="mobile-drawer-panel" id="mobile-menu-panel" aria-label="Menu mobile et tablette">
+      <div class="mobile-drawer-scroll">
+        <ul class="mobile-nav-list">${mobileLinks}</ul>
       </div>
-      <div class="mobile-menu-actions p-6 sm:p-8 pt-4 border-t border-gray-200 flex flex-col gap-3 bg-white">
-        <a href="contact.html" class="mobile-contact-link text-center bg-gold text-white font-bold tracking-wider py-3.5 rounded-lg hover:bg-gold-dark transition-colors">Contact</a>
+      <div class="mobile-drawer-footer">
+        <a href="contact.html" class="mobile-drawer-contact">Contact</a>
       </div>
-    </div>
-  </header>`;
+    </nav>
+  </div>`;
 
   // Scroll
   const navbar = document.getElementById('navbar');
@@ -167,139 +168,114 @@ function initNavbar(currentPage) {
     if (navbar) { if(s>50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); }
   });
 
-  // Mobile Menu Logic - Version corrigée et fonctionnelle
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  
-  if (btn && menu) {
-    let isMenuOpen = false;
-    const menuIcon = btn.querySelector('.menu-icon');
-    const closeIcon = btn.querySelector('.close-icon');
-    
-    // Fonction pour ouvrir le menu
-    const openMenu = () => {
-      isMenuOpen = true;
-      menu.classList.add('mobile-menu-open');
-      menu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
-      menu.classList.add('opacity-100');
-      menu.setAttribute('aria-hidden', 'false');
-      btn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-      
-      // Changer l'icône
-      if (menuIcon && closeIcon) {
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      }
-      
-      // Utiliser l'animation si disponible
-      if (typeof animateMobileMenuToggle === 'function') {
-        animateMobileMenuToggle(true);
-      }
-    };
-    
-    // Fonction pour fermer le menu
-    const closeMenu = () => {
-      if (!isMenuOpen) return;
-      isMenuOpen = false;
-      menu.classList.remove('mobile-menu-open');
-      menu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-      menu.classList.remove('opacity-100');
-      menu.setAttribute('aria-hidden', 'true');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      
-      // Changer l'icône
-      if (menuIcon && closeIcon) {
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }
-      
-      if (typeof animateMobileMenuToggle === 'function') {
-        animateMobileMenuToggle(false);
-      }
-    };
-    
-    // Toggle menu au clic sur le bouton
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (isMenuOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-    
-    // Navigation des liens : fermer le menu puis naviguer (évite pointer-events-none pendant le clic)
-    menu.addEventListener('click', (e) => {
-      if (e.target.closest('button[aria-label="Toggle submenu"]')) return;
+  initMobileDrawer();
+}
 
-      const link = e.target.closest('a[href]');
-      if (!link || !menu.contains(link)) return;
+const MOBILE_NAV_BREAKPOINT = 1280;
 
-      const href = link.getAttribute('href');
-      if (!href || href === '#') return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const destination = link.href;
-      closeMenu();
-
-      if (link.target === '_blank') {
-        window.open(destination, '_blank', 'noopener');
-        return;
-      }
-
-      window.location.assign(destination);
-    });
-
-    // Fermer le menu au clic en dehors
-    document.addEventListener('click', (e) => {
-      if (isMenuOpen && !menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
-      }
-    });
-    
-    // Fermer le menu avec la touche Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
-      }
-    });
-    
-    // Fermer le menu lors du redimensionnement vers desktop
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        if (window.innerWidth >= 1280 && isMenuOpen) {
-          closeMenu();
-        }
-      }, 250);
-    });
+function syncNavHeight() {
+  const inner = document.querySelector('#navbar .navbar-inner');
+  if (inner) {
+    document.documentElement.style.setProperty('--nav-height', `${inner.offsetHeight}px`);
   }
 }
 
-// Toggle mobile submenu - Version simplifiée
-window.toggleMobileSubmenu = function(id) {
-  const submenu = document.getElementById(`mobile-submenu-${id}`);
-  const icon = document.getElementById(`mobile-submenu-icon-${id}`);
-  
-  if (!submenu || !icon) return;
-  
-  const isHidden = submenu.classList.contains('hidden');
-  
-  if (isHidden) {
-    // Ouvrir
-    submenu.classList.remove('hidden');
-    icon.classList.add('rotate-180');
-  } else {
-    // Fermer
-    submenu.classList.add('hidden');
-    icon.classList.remove('rotate-180');
+function initMobileDrawer() {
+  const btn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
+  const panel = document.getElementById('mobile-menu-panel');
+  if (!btn || !drawer || !panel) return;
+
+  const menuIcon = btn.querySelector('.menu-icon');
+  const closeIcon = btn.querySelector('.close-icon');
+  let isOpen = false;
+
+  const openMenu = () => {
+    if (isOpen) return;
+    syncNavHeight();
+    isOpen = true;
+    document.documentElement.classList.add('mobile-menu-active');
+    drawer.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Fermer le menu');
+    document.body.style.overflow = 'hidden';
+    if (menuIcon && closeIcon) {
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+    }
+  };
+
+  const closeMenu = () => {
+    if (!isOpen) return;
+    isOpen = false;
+    document.documentElement.classList.remove('mobile-menu-active');
+    drawer.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Ouvrir le menu');
+    document.body.style.overflow = '';
+    if (menuIcon && closeIcon) {
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    }
+    panel.querySelectorAll('[data-submenu-toggle]').forEach((toggle) => {
+      const id = toggle.getAttribute('data-submenu-toggle');
+      const sub = document.getElementById(`mobile-sub-${id}`);
+      if (sub) sub.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.classList.remove('is-open');
+    });
+  };
+
+  btn.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
   }
+
+  panel.querySelectorAll('[data-submenu-toggle]').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const id = toggle.getAttribute('data-submenu-toggle');
+      const sub = document.getElementById(`mobile-sub-${id}`);
+      if (!sub) return;
+      const willOpen = sub.hidden;
+      sub.hidden = !willOpen;
+      toggle.setAttribute('aria-expanded', String(willOpen));
+      toggle.classList.toggle('is-open', willOpen);
+    });
+  });
+
+  panel.addEventListener('click', (e) => {
+    if (e.target.closest('[data-submenu-toggle]')) return;
+    const link = e.target.closest('a[href]');
+    if (!link || !panel.contains(link)) return;
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+
+  let resizeTimer;
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      syncNavHeight();
+      if (window.innerWidth >= MOBILE_NAV_BREAKPOINT && isOpen) closeMenu();
+    }, 100);
+  };
+  window.addEventListener('resize', onResize);
+  window.addEventListener('orientationchange', syncNavHeight);
+  syncNavHeight();
+}
+
+window.toggleMobileSubmenu = function(id) {
+  const toggle = document.querySelector(`[data-submenu-toggle="${id}"]`);
+  if (toggle) toggle.click();
 }
 
 // ---- FOOTER ----

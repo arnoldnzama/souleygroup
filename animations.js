@@ -347,37 +347,8 @@ function animateTextReveal(element, delay = 0) {
 }
 
 // ---- ANIMATIONS DE NAVIGATION ----
-function animateMobileMenuToggle(isOpen) {
-  if (typeof gsap === 'undefined') return;
-  
-  const menu = document.getElementById('mobile-menu');
-  if (!menu) return;
-  
-  const links = menu.querySelectorAll('.mobile-nav-link, .mobile-submenu-wrapper, .mobile-menu-actions');
-  gsap.killTweensOf(links);
-  
-  if (isOpen) {
-    gsap.set(links, { x: -50, opacity: 0, pointerEvents: 'auto' });
-    gsap.to(links, {
-      x: 0,
-      opacity: 1,
-      pointerEvents: 'auto',
-      duration: 0.4,
-      stagger: 0.05,
-      ease: 'power2.out',
-      delay: 0.1,
-      onComplete: () => gsap.set(links, { clearProps: 'transform,opacity' })
-    });
-  } else {
-    gsap.to(links, {
-      x: -30,
-      opacity: 0,
-      duration: 0.25,
-      stagger: 0.02,
-      ease: 'power2.in',
-      onComplete: () => gsap.set(links, { clearProps: 'transform,opacity' })
-    });
-  }
+function animateMobileMenuToggle() {
+  /* Menu mobile : drawer CSS uniquement (components.js) */
 }
 
 // ---- ANIMATIONS DE TIMELINE ----
