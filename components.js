@@ -105,25 +105,25 @@ function initNavbar(currentPage) {
       return `
         <div class="mobile-submenu-wrapper">
           <div class="flex items-center">
-            <a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg flex-1">${p.label}</a>
-            <button onclick="toggleMobileSubmenu('groupe')" class="p-3 text-navy hover:text-gold transition-colors" aria-label="Toggle submenu">
+            <a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg flex-1 cursor-pointer">${p.label}</a>
+            <button onclick="event.stopPropagation(); toggleMobileSubmenu('groupe')" class="p-3 text-navy hover:text-gold transition-colors flex-shrink-0" aria-label="Toggle submenu">
               <svg class="w-5 h-5 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
           </div>
           <div class="mobile-submenu hidden pl-6 py-2 space-y-1" id="mobile-submenu-groupe">
-            <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Notre Vision</a>
-            <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Nos Projets</a>
+            <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors cursor-pointer">Notre Vision</a>
+            <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors cursor-pointer">Nos Projets</a>
             <div class="border-t border-gray-200 my-2 pt-2">
               <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 px-3">Nos Divisions</p>
-              <a href="services.html#construction" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Magem Construct</a>
-              <a href="services.html#mines" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Mines & Énergie</a>
-              <a href="services.html#telecom" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Télécoms</a>
-              <a href="fondation.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors">Fondation</a>
+              <a href="services.html#construction" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Magem Construct</a>
+              <a href="services.html#mines" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Mines & Énergie</a>
+              <a href="services.html#telecom" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Télécoms</a>
+              <a href="fondation.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2 px-3 rounded transition-colors cursor-pointer">Fondation</a>
             </div>
           </div>
         </div>`;
     }
-    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg block">${p.label}</a>`;
+    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg block cursor-pointer">${p.label}</a>`;
   }).join('');
 
   c.innerHTML = `
@@ -235,11 +235,16 @@ function initNavbar(currentPage) {
       }
     });
     
-    // Fermer le menu au clic sur les liens
+    // Fermer le menu au clic sur les liens - Version améliorée
+    // Utiliser setTimeout pour permettre au navigateur de traiter le clic avant de fermer
     const menuLinks = menu.querySelectorAll('a');
     menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        closeMenu();
+      link.addEventListener('click', (e) => {
+        // Ne pas empêcher le comportement par défaut du lien
+        // Juste fermer le menu après un court délai
+        setTimeout(() => {
+          closeMenu();
+        }, 100);
       });
     });
     
