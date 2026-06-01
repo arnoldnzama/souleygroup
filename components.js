@@ -129,7 +129,7 @@ function initNavbar(currentPage) {
   <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white border-b border-gray-200" id="navbar">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 sm:h-24 lg:h-20">
-        <a href="index.html" class="flex items-center gap-3 group z-50">
+        <a href="index.html" class="flex items-center gap-3 group z-50 relative">
           <img src="logo/sg.png" alt="Souley Group" class="h-16 sm:h-20 md:h-24 lg:h-24 w-auto group-hover:opacity-80 transition-opacity">
         </a>
         <nav class="hidden xl:flex items-center gap-8">${navLinks}</nav>
@@ -139,12 +139,13 @@ function initNavbar(currentPage) {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </button>
         </div>
-        <button class="xl:hidden text-navy hover:text-gold transition-colors focus:outline-none z-50 relative" id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button class="xl:hidden text-navy hover:text-gold transition-colors focus:outline-none z-[60] relative" id="mobile-menu-btn" type="button" aria-controls="mobile-menu" aria-expanded="false">
+          <svg class="w-7 h-7 menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="w-7 h-7 close-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
-    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-40 flex-col transition-all duration-300 hidden" id="mobile-menu">
+    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-[55] flex-col transition-all duration-300 opacity-0 invisible pointer-events-none" id="mobile-menu">
       <div class="flex-1 overflow-y-auto p-6 sm:p-8">
         <div class="mobile-menu-links flex flex-col gap-1 text-left">${mobileLinks}</div>
       </div>
@@ -164,31 +165,61 @@ function initNavbar(currentPage) {
     if (navbar) { if(s>50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); }
   });
 
-  // Mobile Menu Logic - Version simplifiée et robuste
+  // Mobile Menu Logic - Version corrigée et fonctionnelle
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   
   if (btn && menu) {
     let isMenuOpen = false;
+    const menuIcon = btn.querySelector('.menu-icon');
+    const closeIcon = btn.querySelector('.close-icon');
     
     // Fonction pour ouvrir le menu
     const openMenu = () => {
       isMenuOpen = true;
-      menu.classList.remove('hidden');
+      menu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+      menu.classList.add('opacity-100');
       menu.style.display = 'flex';
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+      
+      // Changer l'icône
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+      
+      // Utiliser l'animation si disponible
+      if (typeof animateMobileMenuToggle === 'function') {
+        animateMobileMenuToggle(true);
+      }
     };
     
     // Fonction pour fermer le menu
     const closeMenu = () => {
       isMenuOpen = false;
-      menu.classList.add('hidden');
-      menu.style.display = 'none';
+      menu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+      menu.classList.remove('opacity-100');
       btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      btn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+      
+      // Changer l'icône
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+      
+      // Utiliser l'animation si disponible
+      if (typeof animateMobileMenuToggle === 'function') {
+        animateMobileMenuToggle(false);
+      } else {
+        // Cacher le menu après la transition
+        setTimeout(() => {
+          if (!isMenuOpen) {
+            menu.style.display = 'none';
+          }
+        }, 300);
+      }
     };
     
     // Toggle menu au clic sur le bouton

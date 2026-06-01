@@ -352,42 +352,29 @@ function animateMobileMenuToggle(isOpen) {
   
   const menu = document.getElementById('mobile-menu');
   if (!menu) return;
-  const button = document.getElementById('mobile-menu-btn');
-  const links = menu.querySelectorAll('.mobile-nav-link, .mobile-submenu-wrapper, #mobile-menu > div:last-child');
-  gsap.killTweensOf([menu, links]);
+  
+  const links = menu.querySelectorAll('.mobile-nav-link, .mobile-submenu-wrapper, .mobile-menu-actions');
+  gsap.killTweensOf(links);
   
   if (isOpen) {
-    menu.classList.remove('opacity-0', 'pointer-events-none', 'invisible');
-    menu.classList.add('opacity-100', 'pointer-events-auto');
-    if (button) button.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    
-    gsap.set(links, {clearProps: 'all'});
-    gsap.fromTo(links, {
-      x: -50,
-      opacity: 0
-    }, {
+    // Menu s'ouvre - animer les liens
+    gsap.set(links, { x: -50, opacity: 0 });
+    gsap.to(links, {
       x: 0,
       opacity: 1,
       duration: 0.4,
       stagger: 0.05,
       ease: 'power2.out',
-      clearProps: 'transform,opacity'
+      delay: 0.1
     });
   } else {
-    if (button) button.setAttribute('aria-expanded', 'false');
+    // Menu se ferme - animer les liens
     gsap.to(links, {
       x: -30,
       opacity: 0,
-      duration: 0.3,
-      stagger: 0.03,
-      ease: 'power2.in',
-      onComplete: () => {
-        menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none', 'invisible');
-        gsap.set(links, {clearProps: 'transform,opacity'});
-        document.body.style.overflow = '';
-      }
+      duration: 0.25,
+      stagger: 0.02,
+      ease: 'power2.in'
     });
   }
 }
