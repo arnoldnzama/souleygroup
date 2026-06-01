@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Menu Mobile - Souley Group</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    .test-result { 
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #10b981; 
+      color: white; 
+      padding: 15px 20px; 
+      border-radius: 8px;
+      font-weight: bold;
+      display: none;
+      z-index: 9999;
+    }
+    .test-result.show { display: block; }
+    .test-result.error { background: #ef4444; }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="navbar-container"></div>
+  
+  <div class="max-w-4xl mx-auto p-8 mt-24">
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <h1 class="text-3xl font-bold mb-6 text-gray-800">🧪 Test du Menu Mobile</h1>
+      
+      <div class="space-y-4">
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+          <h2 class="font-bold text-blue-800 mb-2">Instructions de Test</h2>
+          <ol class="list-decimal list-inside space-y-2 text-sm text-blue-700">
+            <li>Réduisez la largeur de votre navigateur (< 1280px) ou utilisez le mode responsive (F12)</li>
+            <li>Cliquez sur le bouton hamburger ☰ en haut à droite</li>
+            <li>Le menu doit s'ouvrir</li>
+            <li>Testez chaque lien ci-dessous</li>
+          </ol>
+        </div>
+
+        <div class="bg-white border rounded-lg p-6">
+          <h3 class="font-bold text-lg mb-4">📋 Liens à Tester</h3>
+          
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+              <span class="font-medium">Accueil</span>
+              <span class="text-sm text-gray-600">→ index.html</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+              <span class="font-medium">Le Groupe</span>
+              <span class="text-sm text-gray-600">→ groupe.html</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+              <span class="font-medium">Services</span>
+              <span class="text-sm text-gray-600">→ services.html</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+              <span class="font-medium">Projets</span>
+              <span class="text-sm text-gray-600">→ projets.html</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Fondation</span>
+              <span class="text-sm text-yellow-700">→ fondation.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Événements</span>
+              <span class="text-sm text-yellow-700">→ evenements.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Actualités</span>
+              <span class="text-sm text-yellow-700">→ actualites.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Carrières</span>
+              <span class="text-sm text-yellow-700">→ carrieres.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded">
+              <span class="font-medium">Contact</span>
+              <span class="text-sm text-gray-600">→ contact.html</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-lg p-6">
+          <h3 class="font-bold text-lg mb-4">📂 Sous-menu "Le Groupe"</h3>
+          
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Notre Vision</span>
+              <span class="text-sm text-yellow-700">→ groupe.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Nos Projets</span>
+              <span class="text-sm text-yellow-700">→ projets.html ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Magem Construct</span>
+              <span class="text-sm text-yellow-700">→ services.html#construction ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Mines & Énergie</span>
+              <span class="text-sm text-yellow-700">→ services.html#mines ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Télécoms</span>
+              <span class="text-sm text-yellow-700">→ services.html#telecom ⚠️</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-yellow-50 rounded border-2 border-yellow-400">
+              <span class="font-bold">Fondation</span>
+              <span class="text-sm text-yellow-700">→ fondation.html ⚠️</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-green-50 border-l-4 border-green-500 p-4">
+          <h3 class="font-bold text-green-800 mb-2">✅ Comportement Attendu</h3>
+          <ul class="list-disc list-inside space-y-1 text-sm text-green-700">
+            <li>Clic sur un lien → La page doit se charger</li>
+            <li>Le menu doit se fermer automatiquement</li>
+            <li>Le curseur doit être en forme de main sur les liens</li>
+            <li>Pas d'erreurs dans la console (F12)</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-4">
+          <h3 class="font-bold text-red-800 mb-2">❌ Si Ça Ne Fonctionne Pas</h3>
+          <ul class="list-disc list-inside space-y-1 text-sm text-red-700">
+            <li>Vider le cache : Ctrl+F5</li>
+            <li>Vérifier la console JavaScript (F12)</li>
+            <li>Vérifier que tous les fichiers existent</li>
+            <li>Tester sur un vrai appareil mobile</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="test-result" class="test-result"></div>
+
+  <script src="components.js"></script>
+  <script src="diagnostic-menu.js"></script>
+  <script>
+    // Initialiser le menu
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar('test');
+      
+      // Tester que le menu existe
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('mobile-menu-btn');
+      
+      if (!menu || !btn) {
+        showResult('❌ Erreur : Menu non trouvé', true);
+        return;
+      }
+      
+      // Tester que les liens existent
+      setTimeout(() => {
+        const links = menu.querySelectorAll('a');
+        console.log('🔍 Nombre de liens trouvés:', links.length);
+        
+        if (links.length === 0) {
+          showResult('⚠️ Aucun lien trouvé dans le menu', true);
+        } else {
+          showResult(`✅ ${links.length} liens détectés dans le menu`);
+          
+          // Logger tous les liens
+          links.forEach((link, index) => {
+            console.log(`Lien ${index + 1}:`, link.textContent.trim(), '→', link.href);
+          });
+        }
+      }, 500);
+      
+      // Écouter les clics sur les liens pour tester
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.href && menu.contains(link)) {
+          console.log('🖱️ Clic détecté sur:', link.textContent.trim(), '→', link.href);
+          
+          // Empêcher la navigation pour le test
+          e.preventDefault();
+          
+          showResult(`✅ Lien fonctionnel : ${link.textContent.trim()}`);
+          
+          // Vérifier que le menu se ferme
+          setTimeout(() => {
+            const isOpen = menu.classList.contains('opacity-100');
+            if (!isOpen) {
+              console.log('✅ Menu fermé automatiquement');
+            } else {
+              console.log('⚠️ Menu toujours ouvert');
+            }
+          }, 200);
+        }
+      });
+    });
+    
+    function showResult(message, isError = false) {
+      const result = document.getElementById('test-result');
+      result.textContent = message;
+      result.className = 'test-result show' + (isError ? ' error' : '');
+      
+      setTimeout(() => {
+        result.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
