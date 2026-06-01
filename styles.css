@@ -182,7 +182,7 @@ html{scroll-behavior:smooth}
    RESPONSIVE MOBILE & TABLET
    ============================================ */
 
-/* Mobile Menu Styles - Version simplifiée et robuste */
+/* Mobile Menu Styles */
 #mobile-menu {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   max-height: calc(100vh - 80px);
@@ -190,8 +190,14 @@ html{scroll-behavior:smooth}
   flex-direction: column;
 }
 
-#mobile-menu:not(.hidden) {
+#mobile-menu.mobile-menu-open {
   display: flex !important;
+}
+
+#mobile-menu.mobile-menu-open a {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .mobile-menu-links {

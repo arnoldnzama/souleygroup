@@ -147,7 +147,7 @@ function initNavbar(currentPage) {
         </button>
       </div>
     </div>
-    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-[55] flex-col transition-all duration-300 opacity-0 invisible pointer-events-none" id="mobile-menu">
+    <div class="xl:hidden fixed inset-0 top-20 sm:top-24 bg-white z-[55] flex-col transition-all duration-300 opacity-0 invisible pointer-events-none" id="mobile-menu" aria-hidden="true">
       <div class="flex-1 overflow-y-auto p-6 sm:p-8">
         <div class="mobile-menu-links flex flex-col gap-1 text-left">${mobileLinks}</div>
       </div>
@@ -179,9 +179,10 @@ function initNavbar(currentPage) {
     // Fonction pour ouvrir le menu
     const openMenu = () => {
       isMenuOpen = true;
+      menu.classList.add('mobile-menu-open');
       menu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
       menu.classList.add('opacity-100');
-      menu.style.display = 'flex';
+      menu.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
       
@@ -199,9 +200,12 @@ function initNavbar(currentPage) {
     
     // Fonction pour fermer le menu
     const closeMenu = () => {
+      if (!isMenuOpen) return;
       isMenuOpen = false;
+      menu.classList.remove('mobile-menu-open');
       menu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
       menu.classList.remove('opacity-100');
+      menu.setAttribute('aria-hidden', 'true');
       btn.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
       
@@ -211,16 +215,8 @@ function initNavbar(currentPage) {
         closeIcon.classList.add('hidden');
       }
       
-      // Utiliser l'animation si disponible
       if (typeof animateMobileMenuToggle === 'function') {
         animateMobileMenuToggle(false);
-      } else {
-        // Cacher le menu après la transition
-        setTimeout(() => {
-          if (!isMenuOpen) {
-            menu.style.display = 'none';
-          }
-        }, 300);
       }
     };
     
@@ -235,60 +231,30 @@ function initNavbar(currentPage) {
       }
     });
     
-    // Attacher les événements aux liens APRÈS l'injection du HTML
-    // Utiliser DEUX méthodes pour garantir que ça fonctionne
-    
-    // Méthode 1 : Délégation d'événements sur le menu (avec capture)
+    // Navigation des liens : fermer le menu puis naviguer (évite pointer-events-none pendant le clic)
     menu.addEventListener('click', (e) => {
-      console.log('🖱️ Clic capturé sur le menu');
-      console.log('   Target:', e.target);
-      console.log('   Target tagName:', e.target.tagName);
-      
-      const link = e.target.closest('a');
-      console.log('   Lien trouvé:', link);
-      
-      if (link && link.href) {
-        console.log('🔗 Navigation vers:', link.href);
-        console.log('   Texte du lien:', link.textContent.trim());
-        
-        // Laisser le navigateur suivre le lien naturellement
-        // Fermer le menu après un court délai
-        setTimeout(() => {
-          closeMenu();
-        }, 100);
+      if (e.target.closest('button[aria-label="Toggle submenu"]')) return;
+
+      const link = e.target.closest('a[href]');
+      if (!link || !menu.contains(link)) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const destination = link.href;
+      closeMenu();
+
+      if (link.target === '_blank') {
+        window.open(destination, '_blank', 'noopener');
+        return;
       }
-    }, true); // true = phase de capture
-    
-    // Méthode 2 : Attacher directement aux liens après un délai
-    setTimeout(() => {
-      const allLinks = menu.querySelectorAll('a');
-      console.log('📋 Liens trouvés:', allLinks.length);
-      
-      allLinks.forEach((link, index) => {
-        if (link.href) {
-          console.log(`  ${index + 1}. ${link.textContent.trim()} → ${link.href}`);
-          
-          // Forcer le style pour s'assurer que le lien est cliquable
-          link.style.pointerEvents = 'auto';
-          link.style.cursor = 'pointer';
-          
-          // Ajouter un événement de clic direct
-          link.addEventListener('click', (e) => {
-            console.log('✅ Clic direct sur:', link.textContent.trim());
-            console.log('   Href:', link.href);
-            
-            // Ne pas empêcher le comportement par défaut
-            // Juste fermer le menu
-            setTimeout(() => {
-              closeMenu();
-            }, 100);
-          }, true); // true = phase de capture
-        }
-      });
-      
-      console.log('✅ Événements attachés à tous les liens');
-    }, 100);
-    
+
+      window.location.assign(destination);
+    });
+
     // Fermer le menu au clic en dehors
     document.addEventListener('click', (e) => {
       if (isMenuOpen && !menu.contains(e.target) && !btn.contains(e.target)) {
