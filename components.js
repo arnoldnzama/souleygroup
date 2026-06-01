@@ -238,41 +238,55 @@ function initNavbar(currentPage) {
     // Attacher les événements aux liens APRÈS l'injection du HTML
     // Utiliser DEUX méthodes pour garantir que ça fonctionne
     
-    // Méthode 1 : Délégation d'événements sur le menu
+    // Méthode 1 : Délégation d'événements sur le menu (avec capture)
     menu.addEventListener('click', (e) => {
+      console.log('🖱️ Clic capturé sur le menu');
+      console.log('   Target:', e.target);
+      console.log('   Target tagName:', e.target.tagName);
+      
       const link = e.target.closest('a');
+      console.log('   Lien trouvé:', link);
+      
       if (link && link.href) {
         console.log('🔗 Navigation vers:', link.href);
+        console.log('   Texte du lien:', link.textContent.trim());
+        
         // Laisser le navigateur suivre le lien naturellement
         // Fermer le menu après un court délai
         setTimeout(() => {
           closeMenu();
         }, 100);
       }
-    });
+    }, true); // true = phase de capture
     
     // Méthode 2 : Attacher directement aux liens après un délai
-    // (pour s'assurer que le HTML est bien injecté)
     setTimeout(() => {
       const allLinks = menu.querySelectorAll('a');
       console.log('📋 Liens trouvés:', allLinks.length);
       
       allLinks.forEach((link, index) => {
-        // Vérifier que le lien a un href
         if (link.href) {
           console.log(`  ${index + 1}. ${link.textContent.trim()} → ${link.href}`);
+          
+          // Forcer le style pour s'assurer que le lien est cliquable
+          link.style.pointerEvents = 'auto';
+          link.style.cursor = 'pointer';
           
           // Ajouter un événement de clic direct
           link.addEventListener('click', (e) => {
             console.log('✅ Clic direct sur:', link.textContent.trim());
+            console.log('   Href:', link.href);
+            
             // Ne pas empêcher le comportement par défaut
             // Juste fermer le menu
             setTimeout(() => {
               closeMenu();
             }, 100);
-          });
+          }, true); // true = phase de capture
         }
       });
+      
+      console.log('✅ Événements attachés à tous les liens');
     }, 100);
     
     // Fermer le menu au clic en dehors
