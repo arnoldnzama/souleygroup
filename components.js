@@ -104,10 +104,12 @@ function initNavbar(currentPage) {
     if (p.hasMega) {
       return `
         <div class="mobile-submenu-wrapper">
-          <button onclick="toggleMobileSubmenu('groupe')" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 w-full text-left flex items-center justify-between rounded-lg">
-            ${p.label}
-            <svg class="w-5 h-5 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
+          <div class="flex items-center">
+            <a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg flex-1">${p.label}</a>
+            <button onclick="toggleMobileSubmenu('groupe')" class="p-3 text-navy hover:text-gold transition-colors" aria-label="Toggle submenu">
+              <svg class="w-5 h-5 transition-transform mobile-submenu-icon" id="mobile-submenu-icon-groupe" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </div>
           <div class="mobile-submenu hidden pl-6 py-2 space-y-1" id="mobile-submenu-groupe">
             <a href="groupe.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Notre Vision</a>
             <a href="projets.html" class="block text-sm text-gray-600 hover:text-gold hover:bg-gold/5 py-2.5 px-3 rounded transition-colors">Nos Projets</a>
@@ -121,7 +123,7 @@ function initNavbar(currentPage) {
           </div>
         </div>`;
     }
-    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg">${p.label}</a>`;
+    return `<a href="${p.href}" class="mobile-nav-link text-base font-semibold ${cls} hover:text-gold hover:border-gold hover:bg-gold/5 transition-all py-3.5 px-4 rounded-lg block">${p.label}</a>`;
   }).join('');
 
   c.innerHTML = `
