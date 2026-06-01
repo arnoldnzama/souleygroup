@@ -235,17 +235,18 @@ function initNavbar(currentPage) {
       }
     });
     
-    // Fermer le menu au clic sur les liens - Version améliorée
-    // Utiliser setTimeout pour permettre au navigateur de traiter le clic avant de fermer
-    const menuLinks = menu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        // Ne pas empêcher le comportement par défaut du lien
-        // Juste fermer le menu après un court délai
+    // Attacher les événements aux liens APRÈS l'injection du HTML
+    // Utiliser la délégation d'événements pour capturer tous les clics sur les liens
+    menu.addEventListener('click', (e) => {
+      // Vérifier si l'élément cliqué est un lien <a>
+      const link = e.target.closest('a');
+      if (link && link.href) {
+        // Laisser le navigateur suivre le lien
+        // Fermer le menu après un court délai
         setTimeout(() => {
           closeMenu();
         }, 100);
-      });
+      }
     });
     
     // Fermer le menu au clic en dehors
